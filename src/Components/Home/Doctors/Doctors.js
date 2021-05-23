@@ -1,25 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import doctor from '../../../images/doctor.png';
 import Doctor from '../Doctor/Doctor';
 import './Doctors.css';
 const Doctors = () => {
-    const doctors =[
-        {
-            name:'Dr.Caudi',
-            img:doctor,
-            phone:'01788836781'
-        },
-        {
-            name:'Dr.Caudi',
-            img:doctor,
-            phone:'01788836781'
-        },
-        {
-            name:'Dr.Caudi',
-            img:doctor,
-            phone:'01788836781'
-        }
-    ]
+    const [doctors, setDoctors] = useState([])
+    useEffect( () => {
+        fetch('https://hidden-sea-69527.herokuapp.com/doctors')
+        .then(res => res.json())
+        .then(data => setDoctors(data))
+    }, [])
     return (
         <section className="my-5 doctor">
             <div>
@@ -30,7 +19,7 @@ const Doctors = () => {
                 <div className="d-flex my-3 px-5">
                     <div className="row mx-5 px-5">
                         {
-                            doctors.map(doctor => <Doctor doctor={doctor}></Doctor>)
+                            doctors.map(doctor => <Doctor key={doctor._id} doctor={doctor}></Doctor>)
                         }
                     </div>
                 </div>

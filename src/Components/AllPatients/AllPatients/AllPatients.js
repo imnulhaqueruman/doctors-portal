@@ -5,7 +5,7 @@ import PatientTable from '../PatientTable/PatientTable';
 const AllPatients = () => {
     const[patients,setPatients] = useState([])
     useEffect(() =>{
-        fetch('http://localhost:5000/appointments')
+        fetch('https://hidden-sea-69527.herokuapp.com/appointments')
         .then(res => res.json())
         .then(data => setPatients(data))
     },[])

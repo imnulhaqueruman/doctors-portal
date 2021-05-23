@@ -5,7 +5,7 @@ const Doctor = ({doctor}) => {
     return (
         <div className="col-md-4 ">
             <div style={{width:'20rem'}} className="card my-5 py-5 ">
-                <img src={doctor.img} className="card-img-top img-fluid" style={{height:"250px"}} alt="" />
+               <img style={{height: '200px'}} src={`data:image/png;base64,${doctor.image.img}`} className="img-fluid" alt=""/>
                 <div className="card-body text-center">
                     <h5 className="card-title ">{doctor.name}</h5>
                     <p className="text-info"><FontAwesomeIcon icon={faPhone}></FontAwesomeIcon>{doctor.phone}</p>
